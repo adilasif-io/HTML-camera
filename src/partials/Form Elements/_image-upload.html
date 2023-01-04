@@ -1,0 +1,33 @@
+<!-- ========== Start Simple Image Upload Block ========== -->
+{{! Sample Usage:-
+    Syntax: ((> _image-upload Label="Image Upload Field Name" Required=1 ForLang="EN" Size="100px x 100px" Format=".svg" Image="../assets/../assets/img/logo.png" Id=1))
+Variables:-
+        Label = "Image Upload Field Name" (Optional)
+        Required = 1 (Default is 0)
+        ForLang = "EN" (Default is "")
+        Size="100px x 100px" (Required)
+        Format=".svg" (Default is ".png or .jpg")
+        Image="../assets/../assets/img/logo.png" (Default is Placeholder image "general-placeholder.png")
+        Id = 1 (Can be anything. Useful when multiple Multiple File Uploaders are user in the same page.)
+}}
+<div class="row">
+  <div class="col-10 mb-3">
+      {{#if Label}}<label for="formFile" class="form-label">{{Label}}{{ForLang}}{{#if Required}}<span class=" text-danger">*</span>{{/if}}</label>{{else}}<label for="formFile" class="form-label">Upload Image{{ForLang}}{{#if Required}}<span class=" text-danger">*</span>{{/if}}</label>{{/if}}
+      <input class="form-control   " type="file" id="upload-image-{{Id}}">
+      <small class="form-text text-muted">For consistency purposes, please upload all image at the size {{Size}} px in {{#if Format}}{{Format}}{{else}}.png or .jpg{{/if}} format</small>
+      <div class="invalid-feedback">
+          For consistency purposes, please upload all image at the size {{Size}} px in {{#if Format}}{{Format}}{{else}}.png or .jpg{{/if}} format
+      </div>
+  </div>
+  <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+      <img src="{{#if Image}}{{Image}}{{else}}assets/img/general-placeholder.png{{/if}}" class="img-fluid preview-image-{{Id}}" id="preview-image-{{Id}}">
+      <p class="text-muted text-center mb-1 mt-2">Preview</p>
+  </div>
+</div>
+<script>
+    $("#upload-image-{{Id}}").change(function(event){
+        var image = document.getElementById('preview-image-{{Id}}');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    });
+</script>
+<!-- ========== End Simple Image Upload Block ========== -->

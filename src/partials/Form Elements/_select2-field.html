@@ -1,0 +1,10 @@
+{{#if Label}}<label for="{{NameId}}" class="form-label">{{Label}}{{#if Required}}<span class=" text-danger">*</span>{{/if}}</label>{{/if}}
+<select data-plugin-selectTwo {{#if Multiple}}multiple{{/if}} class="form-control    h-100" style="height: 48px" name="{{NameId}}" id="{{NameId}}" data-plugin-options='{ "placeholder": "{{Placeholder}}", "allowClear": true,"height": "48px" }' {{#if Required}}required{{/if}}>
+    {{#each data}}
+        <option {{#if @index}}value="{{@index}}"{{/if}} {{#ifequal @index Selected}}selected{{/ifequal}}>{{this}}</option>
+    {{/each}}
+</select>
+{{#if HelpText}}<small class="form-text text-muted">{{HelpText}}{{#if HelptextLink}}<a href="{{HelptextLink}}">{{HelptextLinkText}}</a>{{/if}}</small>{{/if}}
+
+{{#if InvalidFeedback}}<div class="invalid-feedback">{{InvalidFeedback}}</div>{{/if}}
+

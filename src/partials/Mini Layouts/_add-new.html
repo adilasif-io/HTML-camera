@@ -1,0 +1,24 @@
+<!-- ========== Start Add New Card Block ========== -->
+{{! Sample Usage:-
+    Syntax:
+    ((#> _add-new ))
+    <h1>Content goes here!</h1>
+    ((/ _card-block))
+Variables:-
+    CardTitle = Can be text only. can also be passed the "title" Global Variable
+    ButtonText = Text displayed on the Card Action Button
+    ButtonURL = Added as window.location to the button
+    ModalId = Must adhere to the html ID guidelines. i.e. must not have spaces. AND BUTTONURL MUST BE NULL i.e. not provided
+}}
+<div class="row">
+  <div class="col-12">
+    {{#> _card-block DisableCardHeader=1 BodyClasses="bg-secondary text-primary"}}
+    <div class="d-flex justify-content-between ">
+      <h3 class="mt-2">{{CardTitle}}</h3>
+      <a href="{{ButtonURL}}" class="btn btn-primary" {{#if ModalId}}data-bs-toggle="modal" data-bs-target="{{ModalId}}"
+        {{/if}}>{{ButtonText}}</a>
+    </div>
+    {{/ _card-block}}
+  </div>
+</div>
+<!-- ========== End Add New Card Block ========== -->

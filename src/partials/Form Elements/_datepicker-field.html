@@ -1,0 +1,31 @@
+<!-- ========== Start Datepicker Field ========== -->
+{{! Sample Usage:-
+    Syntax: ((> _datepicker-field Label="Date Range Name" Required=1 DateRange=1 NameId="Date-range-id"))
+Variables:-
+    Required = 1 (Default 0)
+    DateRange = 1 (Default 0)
+    Label = Text to be displayed as title of the Field
+    NameId = Must adhere to the html ID guidelines. i.e. must not have spaces.
+}}
+{{#if DateRange}}
+    {{#if Label}}<label for="{{NameId}}" class="form-label">{{Label}}{{#if Required}}<span class=" text-danger">*</span>{{/if}}</label>{{/if}}
+    <div class="input-daterange input-group " data-plugin-datepicker>
+        <span class="input-group-text ">
+            <i class="fas fa-calendar-alt"></i>
+        </span>
+        {{> _input-field Label="" NameId="start" DisableAutocomplete=1}}
+        <span class="input-group-text border-start-0 border-end-0  rounded-0">
+            to
+        </span>
+        {{> _input-field Label="" NameId="end" DisableAutocomplete=1}}
+    </div>
+{{else}}
+{{#if Label}}<label for="{{NameId}}" class="form-label">{{Label}}{{#if Required}}<span class=" text-danger">*</span>{{/if}}</label>{{/if}}
+    <div class="input-group ">
+        <span class="input-group-text ">
+            <i class="fas fa-calendar-alt"></i>
+        </span>
+        {{> _input-field Label="" Attribute="data-plugin-datepicker" DisableAutocomplete=1}}
+    </div>
+{{/if}}
+<!-- ========== End Datepicker Field ========== -->

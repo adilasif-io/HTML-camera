@@ -1,0 +1,13 @@
+{{! Sample Usage:-
+    Syntax: ((> _media-gallery-uploader Identifier="unique-value")
+    Variables:-
+        Identifier = Must Adhere to the HTML Standards. Must be unique. (Optional)
+}}
+
+<div class="input-images-{{identifier}}"></div>
+
+<script>
+    $(document).ready(function(){
+        $('.input-images-{{identifier}}').imageUploader();
+    });
+</script>
