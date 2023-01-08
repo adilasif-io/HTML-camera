@@ -123,6 +123,7 @@ function jsVendor() {
       'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
       'node_modules/slick-carousel/slick/slick.min.js',
       'node_modules/lax.js/src/lax.js',
+      'node_modules/html5-qrcode/html5-qrcode.min.js',
       
     ])
     .pipe(dest('dist/assets/vendor/js'))

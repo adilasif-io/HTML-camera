@@ -1,0 +1,28 @@
+---
+layout: default
+title: Home Page
+---
+<section class="mt-4 mb-5">
+  <div class="container-fluid px-0 d-flex justify-content-center align-items-center bg-dark">
+    <div class="row g-0">
+      <div class="col-12">
+        <div style="width: 500px" id="reader"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $(function(){
+    function onScanSuccess(decodedText, decodedResult) {
+    // Handle on success condition with the decoded text or result.
+    console.log(`Scan result: ${decodedText}`, decodedResult);
+    }
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess);
+  });
+</script>
+
+<script src="{{root}}assets/vendor/js/html5-qrcode.min.js"></script>
