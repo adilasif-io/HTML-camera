@@ -50,3 +50,4 @@ yarn.lock
 ### Custom Files ###
 dist/
 accessibility-reports/
+docs/
